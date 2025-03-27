@@ -1,0 +1,20 @@
+.heroContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: lightslategray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.innerHeroContainer{
+    background-color: lightgray;
+    width: 30%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
