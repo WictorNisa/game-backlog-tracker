@@ -1,0 +1,374 @@
+/* src/components/GameDetailsPage/GameDetailsPage.module.css */
+.detailsContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px;
+  }
+  
+  /* Loading, error, and not found states */
+  .loadingContainer,
+  .errorContainer,
+  .notFoundContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .backButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+  }
+  
+  .backButton:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Game header styling */
+  .gameHeader {
+    display: flex;
+    margin-bottom: 30px;
+  }
+  
+  .gameCover {
+    width: 200px;
+    height: 300px;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .gameTitleSection {
+    flex: 1;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .gameTitle {
+    font-size: 2.2rem;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+  }
+  
+  .platformGenre {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #666;
+  }
+  
+  .separator {
+    margin: 0 8px;
+  }
+  
+  .publisher {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .statusBadge {
+    align-self: flex-start;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+  
+  /* Game tracking section */
+  .gameTracking {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .gameTracking h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+  }
+  
+  .trackingGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .trackingItem {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .trackingLabel {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .statusSelector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .statusButton {
+    padding: 6px 12px;
+    background-color: transparent;
+    border: 2px solid;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .statusButton:hover:not(:disabled) {
+    opacity: 0.8;
+  }
+  
+  .statusButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .activeStatus {
+    color: white !important;
+  }
+  
+  /* Description section */
+  .descriptionSection {
+    margin-bottom: 30px;
+  }
+  
+  .descriptionSection h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .description {
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  /* Notes section */
+  .notesSection {
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notesSectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .notesSectionHeader h2 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .editButton {
+    padding: 6px 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .editButton:hover:not(:disabled) {
+    background-color: #e9ecef;
+  }
+  
+  .editButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .notesContent {
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .emptyNotes {
+    color: #888;
+    font-style: italic;
+  }
+  
+  .notesEditor {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .notesTextarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.5;
+    resize: vertical;
+    margin-bottom: 15px;
+  }
+  
+  .notesActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .cancelButton,
+  .saveButton {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .cancelButton {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+  }
+  
+  .cancelButton:hover:not(:disabled) {
+    background-color: #e9ecef;
+  }
+  
+  .saveButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+  }
+  
+  .saveButton:hover:not(:disabled) {
+    background-color: #43A047;
+  }
+  
+  .saveButton:disabled,
+  .cancelButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Error message */
+  .updateError {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  /* Footer actions */
+  .footerActions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+  }
+  
+  .backToLibraryButton {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+  }
+  
+  .backToLibraryButton:hover {
+    background-color: #2980b9;
+  }
+  
+  .removeButton {
+    padding: 10px 20px;
+    background-color: white;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  
+  .removeButton:hover:not(:disabled) {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .removeButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .gameHeader {
+      flex-direction: column;
+    }
+    
+    .gameCover {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 20px;
+    }
+    
+    .gameTitleSection {
+      padding-left: 0;
+    }
+    
+    .trackingGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .statusSelector {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .statusButton {
+      width: 100%;
+    }
+  }

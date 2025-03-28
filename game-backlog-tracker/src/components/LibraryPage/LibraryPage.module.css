@@ -1,0 +1,63 @@
+
+/* src/components/Library/LibraryPage.module.css */
+.libraryContainer {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .filterControls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .filterControls h2 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+  
+  .filters {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .filterSelect, .sortSelect {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 0.9rem;
+    background-color: white;
+  }
+  
+  .gameCount {
+    margin-bottom: 16px;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .gameGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .loadingContainer, .errorContainer, .emptyLibrary, .emptyResults {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    text-align: center;
+  }
+  
+  .emptyLibrary h2, .errorContainer h2 {
+    margin-bottom: 12px;
+  }
+  
+  .emptyLibrary p, .errorContainer p, .emptyResults p {
+    color: #666;
+    max-width: 400px;
+  }

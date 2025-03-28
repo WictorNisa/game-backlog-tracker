@@ -1,6 +1,6 @@
 .currentGameContainer {
   width: 100vw;
-  height: auto;
+  height: 50vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -18,12 +18,14 @@
 
 .gameGrid {
   display: grid;
+  width: 100%;
+  height: 100%;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
-} 
+}
 
 .addGameButton {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -34,5 +36,5 @@
 }
 
 .addGameButton:hover {
-  background-color: #388E3C;
+  background-color: #388e3c;
 }

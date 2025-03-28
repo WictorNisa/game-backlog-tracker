@@ -95,10 +95,7 @@ export function GameLibraryProvider({ children }: { children: ReactNode }) {
   };
 
   // Function to update a game's status
-  const updateGameStatus = async (
-    gameId: number,
-    newStatus: Game["status"]
-  ) => {
+  const updateGameStatus = async (gameId, newStatus) => {
     try {
       // Optimistic update - update the UI immediately
       setGames((prevGames) =>
@@ -108,11 +105,17 @@ export function GameLibraryProvider({ children }: { children: ReactNode }) {
       );
 
       // Send the update to the server
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        throw new Error("No authentication token found");
+      }
+
       const response = await fetch(`http://localhost:3000/library/${gameId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ status: newStatus }),
       });
@@ -121,6 +124,7 @@ export function GameLibraryProvider({ children }: { children: ReactNode }) {
         throw new Error("Failed to update game status");
       }
 
+      // Optionally refresh the library to ensure data consistency
       await refreshLibrary();
     } catch (err) {
       // If there's an error, revert our optimistic update

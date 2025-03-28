@@ -1,18 +1,153 @@
-.dashboardHeader{
-    background-color: aqua;
-    width: 100vw;
-    height: 25%;
+/* src/components/DashboardHeader/DashboardHeader.module.css */
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.dashboardNavList{
-    background-color:antiquewhite;
-    height: 100%;
-    width: 40%;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .logoSection {
+    flex-shrink: 0;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .logo:hover {
+    color: #3498db;
+  }
+  
+  .navigation {
+    flex: 1;
+    margin: 0 40px;
+  }
+  
+  .navList {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     list-style: none;
-}
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navItem {
+    margin-right: 30px;
+  }
+  
+  .navLink {
+    position: relative;
+    color: #555;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 5px 0;
+    transition: color 0.2s;
+  }
+  
+  .navLink:hover {
+    color: #3498db;
+  }
+  
+  .active {
+    color: #3498db;
+  }
+  
+  .active::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #3498db;
+    border-radius: 3px;
+  }
+  
+  .userSection {
+    display: flex;
+    align-items: center;
+  }
+  
+  .userProfile {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .avatar {
+    width: 32px;
+    height: 32px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-right: 10px;
+  }
+  
+  .username {
+    font-weight: 600;
+  }
+  
+  .logoutButton {
+    background-color: transparent;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .logoutButton:hover {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .logoSection {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .navigation {
+      margin: 15px 0;
+    }
+    
+    .navList {
+      justify-content: space-between;
+    }
+    
+    .navItem {
+      margin-right: 0;
+    }
+    
+    .userSection {
+      justify-content: space-between;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+    }
+  }

@@ -8,6 +8,8 @@ import PrivateRoute from "./routes/PrivateRoute.tsx";
 import { GameLibraryProvider } from "./context/GameLibraryContext.tsx";
 import { AuthProvider } from "./context/AuthContext.tsx";
 import AddGame from "./components/AddGame/AddGame.tsx";
+import LibraryPage from "./components/LibraryPage/LibraryPage.tsx";
+import GameDetailsPage from "./components/GameDetailsPage/GameDetailsPage.tsx";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
               <Route element={<PrivateRoute />}>
                 <Route path="/home" element={<Home />} />
                 <Route path="/addgame" element={<AddGame />} />
+                <Route path="/library" element={<LibraryPage />} />
+                <Route path="/game/:id" element={<GameDetailsPage />} />
               </Route>
             </Routes>
           </div>
