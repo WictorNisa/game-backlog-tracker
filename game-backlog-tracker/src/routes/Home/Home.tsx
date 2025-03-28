@@ -1,18 +1,17 @@
 import React from "react";
-import { useAuth } from "../../context/AuthContext";
 
+import styles from "./Home.module.css";
+import CurrentlyPlaying from "../../components/CurrentlyPlaying/CurrentlyPlaying";
+import AddGame from "../../components/AddGame/AddGame";
+import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
 const Home = () => {
-  const { user, logout } = useAuth();
-  if (!user) {
-    return <div>Loading...</div>;
-  }
-
   return (
-    <div>
-      <h1>Welcome, {user.username}!</h1>
-      <p>Email: {user.email}</p>
-      <button onClick={logout}>Logout</button>
-    </div>
+    <section className={styles.homeContainer}>
+      <DashboardHeader />
+      <CurrentlyPlaying />
+
+      {/* <AddGame /> */}
+    </section>
   );
 };
 

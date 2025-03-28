@@ -1,0 +1,18 @@
+.dashboardHeader{
+    background-color: aqua;
+    width: 100vw;
+    height: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboardNavList{
+    background-color:antiquewhite;
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+}

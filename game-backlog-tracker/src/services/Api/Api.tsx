@@ -1,4 +1,6 @@
 import { User } from "../../types/types";
+const RAWG_API_KEY = "482756f0f018479eb45c2673695958f4"; // Better to use environment variables
+const RAWG_BASE_URL = "https://api.rawg.io/api";
 
 interface userData {
   userName: string;
@@ -17,6 +19,54 @@ interface loginData {
   userPassword: string;
 }
 
+export const fetchFromRAWG = async (endpoint: string, params = {}) => {
+  const queryParams = new URLSearchParams({
+    key: RAWG_API_KEY,
+    ...params,
+  });
+
+  const response = await fetch(`${RAWG_BASE_URL}${endpoint}?${queryParams}`);
+
+  if (!response.ok) {
+    throw new Error(
+      `RAWG API error: ${response.status} ${response.statusText}`
+    );
+  }
+
+  return await response.json();
+};
+
+//Fetch users currently playing games( max 4)
+export const getAllUserGames = async () => {
+  try {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      throw new Error("No authentication token found");
+    }
+
+    const response = await fetch("http://localhost:3000/library", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch: ${response.status} ${response.statusText}`
+      );
+    }
+
+    const data = await response.json();
+    console.log("Fetching user library was successful", data);
+    return data;
+  } catch (error) {
+    console.error("Error fetching user library:", error);
+    throw error; // Make sure to throw the error so it can be caught by the caller
+  }
+};
+
+// Register new user fetch
 export const signUpuser = async (userData: userData) => {
   try {
     const response = await fetch("http://localhost:3000/register", {
@@ -36,6 +86,7 @@ export const signUpuser = async (userData: userData) => {
   }
 };
 
+//Login user fetch
 export const loginUser = async (loginData: {
   userEmail: string;
   userPassword: string;
@@ -55,7 +106,7 @@ export const loginUser = async (loginData: {
     }
 
     const data = await response.json();
-    
+
     // Log the full response for debugging
     console.log("Full login response:", JSON.stringify(data, null, 2));
 
@@ -66,12 +117,12 @@ export const loginUser = async (loginData: {
     }
 
     // Check specific properties
-    const requiredProps = ['id', 'username', 'email'];
-    const missingProps = requiredProps.filter(prop => !data.user[prop]);
-    
+    const requiredProps = ["id", "username", "email"];
+    const missingProps = requiredProps.filter((prop) => !data.user[prop]);
+
     if (missingProps.length > 0) {
       console.error("Missing user properties:", missingProps);
-      throw new Error(`Invalid user data: missing ${missingProps.join(', ')}`);
+      throw new Error(`Invalid user data: missing ${missingProps.join(", ")}`);
     }
 
     return data;

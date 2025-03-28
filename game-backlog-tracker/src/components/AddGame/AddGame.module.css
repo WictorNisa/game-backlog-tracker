@@ -1,0 +1,128 @@
+.addGameContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContainer {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gameForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 600;
+}
+
+.formGroup input,
+.formGroup select {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.formActions {
+  margin-top: 1.5rem;
+}
+
+.submitButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  background-color: #00bbff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* src/components/AddGame/AddGame.module.css */
+/* Keep your existing styles and add these new ones */
+
+.searchMode {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.orDivider {
+  position: relative;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.orDivider::before, 
+.orDivider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.orDivider::before {
+  left: 0;
+}
+
+.orDivider::after {
+  right: 0;
+}
+
+.orDivider span {
+  background-color: white;
+  padding: 0 15px;
+  color: #777;
+}
+
+.manualEntryButton {
+  align-self: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.manualEntryButton:hover {
+  background-color: #e9ecef;
+}
+
+.selectedGameImage {
+  width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.selectedGameImage img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.readonlyField {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+}

@@ -1,16 +1,15 @@
 .nav {
-  background-color: grey;
+  background-color: white;
   width: 100vw;
   height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  top: 0;
+ 
 }
 
 .navList {
-  background-color: lightgrey;
+  background-color: white;
   height: 100%;
   width: 40%;
   display: flex;

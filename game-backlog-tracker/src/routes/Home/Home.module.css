@@ -1,0 +1,16 @@
+.homeContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homeHeader {
+  background-color: lightgray;
+  width: 100vw;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
